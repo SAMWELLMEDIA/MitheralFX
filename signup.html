@@ -27,7 +27,6 @@
       --accent: #6a5acd;
       --accent-light: #8a7bd8;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -92,10 +91,6 @@
       box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.2);
     }
     
-    body.light-mode .checkbox-group label {
-      color: #555;
-    }
-    
     body.light-mode .divider {
       color: #aaa;
     }
@@ -137,19 +132,6 @@
     body.light-mode .benefit-card {
       background: #fff;
       color: #333;
-    }
-    
-    body.light-mode .modal-content {
-      background: #fff;
-      color: #333;
-    }
-    
-    body.light-mode .modal-header {
-      border-bottom: 1px solid #ddd;
-    }
-    
-    body.light-mode .modal-footer {
-      border-top: 1px solid #ddd;
     }
     
     body.light-mode footer {
@@ -312,83 +294,10 @@
       font-size: 1rem;
     }
     
-    /* Progress Steps */
-    .progress-steps {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .progress-steps::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.1);
-      z-index: -1;
-    }
-    
-    .progress-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .step-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      transition: all 0.3s;
-    }
-    
-    .progress-step.active .step-circle {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: var(--dark);
-    }
-    
-    .progress-step.completed .step-circle {
-      background: var(--success);
-      border-color: var(--success);
-      color: #fff;
-    }
-    
-    .step-label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-align: center;
-      max-width: 80px;
-    }
-    
-    .progress-step.active .step-label {
-      color: var(--primary);
-    }
-    
-    .progress-step.completed .step-label {
-      color: var(--success);
-    }
-    
     /* Form Sections */
     .form-section {
-      display: none;
-      animation: fadeIn 0.5s ease-out;
-    }
-    
-    .form-section.active {
       display: block;
+      animation: fadeIn 0.5s ease-out;
     }
     
     @keyframes fadeIn {
@@ -776,51 +685,7 @@
       font-size: 0.85rem;
     }
     
-    /* Form Navigation */
-    .form-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .btn-nav {
-      padding: 0.8rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 1rem;
-    }
-    
-    .btn-prev {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .btn-prev:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .btn-next {
-      background: var(--primary);
-      color: var(--dark);
-    }
-    
-    .btn-next:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-    
-    .btn-next:disabled {
-      background: var(--text-muted);
-      cursor: not-allowed;
-      transform: none;
-    }
-    
+    /* Form Submission */
     .btn-submit {
       background: var(--success);
       color: #fff;
@@ -1007,57 +872,6 @@
       line-height: 1.5;
     }
     
-    /* Success Animation */
-    .success-animation {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-    }
-    
-    .success-animation.show {
-      display: block;
-      animation: fadeIn 0.5s ease-out;
-    }
-    
-    .success-icon {
-      width: 80px;
-      height: 80px;
-      background: var(--success);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      animation: scaleIn 0.5s ease-out;
-    }
-    
-    @keyframes scaleIn {
-      from {
-        transform: scale(0);
-        opacity: 0;
-      }
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-    
-    .success-icon i {
-      font-size: 3rem;
-      color: #fff;
-    }
-    
-    .success-animation h3 {
-      color: var(--success);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-    
-    .success-animation p {
-      color: var(--text-light);
-      margin-bottom: 2rem;
-    }
-    
     /* Error Message */
     .error-message {
       background: rgba(234, 67, 53, 0.1);
@@ -1081,134 +895,6 @@
       0%, 100% { transform: translateX(0); }
       10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
       20%, 40%, 60%, 80% { transform: translateX(5px); }
-    }
-    
-    /* Terms Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(5px);
-    }
-    
-    .modal.show {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: fadeIn 0.3s;
-    }
-    
-    .modal-content {
-      background: var(--card-bg);
-      border-radius: 16px;
-      width: 90%;
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      animation: slideUp 0.3s;
-    }
-    
-    @keyframes slideUp {
-      from {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    
-    .modal-header {
-      padding: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .modal-header h3 {
-      color: var(--primary);
-      font-weight: 700;
-    }
-    
-    .close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    
-    .close:hover {
-      color: #fff;
-    }
-    
-    .modal-body {
-      padding: 1.5rem;
-    }
-    
-    .modal-body h4 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    
-    .modal-body p {
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-    
-    .modal-body ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    .modal-body li {
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-    
-    .modal-footer {
-      padding: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-    }
-    
-    .btn-modal {
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-    }
-    
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: var(--dark);
-    }
-    
-    .btn-primary:hover {
-      background: var(--primary-dark);
     }
     
     /* Footer */
@@ -1292,47 +978,16 @@
           <p>Join thousands of traders worldwide</p>
         </div>
         
-       
-        <div class="progress-steps">
-          <div class="progress-step active" data-step="1">
-            <div class="step-circle">1</div>
-            <div class="step-label">Personal Info</div>
-          </div>
-          <div class="progress-step" data-step="2">
-            <div class="step-circle">2</div>
-            <div class="step-label">Account Details</div>
-          </div>
-          <div class="progress-step" data-step="3">
-            <div class="step-circle">3</div>
-            <div class="step-label">Preferences</div>
-          </div>
-          <div class="progress-step" data-step="4">
-            <div class="step-circle">4</div>
-            <div class="step-label">Complete</div>
-          </div>
-        </div>
-        
         <div class="error-message" id="errorMessage">
           <i class="fas fa-exclamation-circle me-2"></i>
           <span id="errorText">Please fix the errors below</span>
         </div>
         
-       
-        <div class="success-animation" id="successAnimation">
-          <div class="success-icon">
-            <i class="fas fa-check"></i>
-          </div>
-          <h3>Account Created Successfully!</h3>
-          <p>Welcome to MitheralFX! Your account has been created and is ready to use.</p>
-          <button class="btn-submit" onclick="window.location.href='dashboard.html'">
-            Go to Dashboard
-          </button>
-        </div>
-        
-       
         <form id="signupForm">
-         
-          <div class="form-section active" id="step1">
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">Personal Information</h3>
+            
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -1392,15 +1047,12 @@
                 <i class="fas fa-gift input-icon"></i>
               </div>
             </div>
-            
-            <div class="form-navigation">
-              <div></div>
-              <button type="button" class="btn-nav btn-next" onclick="nextStep()">Next</button>
-            </div>
           </div>
           
-          
-          <div class="form-section" id="step2">
+          <!-- Account Details -->
+          <div class="form-section">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">Account Details</h3>
+            
             <div class="form-group">
               <label>Account Type *</label>
               <div class="account-types">
@@ -1487,15 +1139,12 @@
                 </div>
               </div>
             </div>
-            
-            <div class="form-navigation">
-              <button type="button" class="btn-nav btn-prev" onclick="prevStep()">Previous</button>
-              <button type="button" class="btn-nav btn-next" onclick="nextStep()">Next</button>
-            </div>
           </div>
           
-         
-          <div class="form-section" id="step3">
+          <!-- Preferences -->
+          <div class="form-section">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">Preferences</h3>
+            
             <div class="form-group">
               <label>Profile Picture (Optional)</label>
               <div class="profile-upload">
@@ -1584,58 +1233,10 @@
               </div>
             </div>
             
-            <div class="form-navigation">
-              <button type="button" class="btn-nav btn-prev" onclick="prevStep()">Previous</button>
-              <button type="button" class="btn-nav btn-next" onclick="nextStep()">Next</button>
-            </div>
-          </div>
-          
-          
-          <div class="form-section" id="step4">
-            <div class="form-group">
-              <h4>Review Your Information</h4>
-              <div id="reviewInfo" style="background: rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 1rem; margin-top: 1rem;">
-              
-              </div>
-            </div>
-            
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" id="terms" required>
-                I agree to the <a href="#" id="termsLink">Terms of Service</a> and <a href="#" id="privacyLink">Privacy Policy</a> *
-              </label>
-            </div>
-            
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" id="age">
-                I confirm that I am at least 18 years old *
-              </label>
-            </div>
-            
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" id="marketing">
-                I would like to receive marketing communications and special offers
-              </label>
-            </div>
-            
-            <div class="checkbox-group">
-              <label>
-                <input type="checkbox" id="risk">
-                I understand the risks involved in trading and I am trading with funds I can afford to lose *
-              </label>
-            </div>
-            
             <button type="submit" class="btn-submit" id="submitButton">
               <span class="spinner"></span>
               <span class="btn-text">Create Account</span>
             </button>
-            
-            <div class="form-navigation">
-              <button type="button" class="btn-nav btn-prev" onclick="prevStep()">Previous</button>
-              <div></div>
-            </div>
           </div>
         </form>
         
@@ -1693,64 +1294,6 @@
     </div>
   </main>
   
- 
-  <div class="modal" id="termsModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Terms of Service</h3>
-        <button class="close" id="closeTerms">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>1. Acceptance of Terms</h4>
-        <p>By creating an account with MitheralFX, you agree to be bound by these Terms of Service.</p>
-        
-        <h4>2. Trading Services</h4>
-        <p>MitheralFX provides online trading services for various financial instruments including forex, commodities, indices, and cryptocurrencies.</p>
-        
-        <h4>3. Account Security</h4>
-        <p>You are responsible for maintaining the security of your account and password. MitheralFX cannot be held liable for any unauthorized access to your account.</p>
-        
-        <h4>4. Risk Disclosure</h4>
-        <p>Trading financial instruments involves significant risk. You should only trade with money you can afford to lose.</p>
-        
-        <h4>5. Fees and Commissions</h4>
-        <p>MitheralFX charges spreads and commissions on trades. All fees are clearly disclosed on our platform.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-modal btn-primary" id="acceptTerms">I Accept</button>
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="modal" id="privacyModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Privacy Policy</h3>
-        <button class="close" id="closePrivacy">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h4>Information We Collect</h4>
-        <p>We collect information you provide directly to us, such as when you create an account, use our services, or contact us for support.</p>
-        
-        <h4>How We Use Your Information</h4>
-        <p>We use the information we collect to provide, maintain, and improve our services, process transactions, and communicate with you.</p>
-        
-        <h4>Information Sharing</h4>
-        <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
-        
-        <h4>Data Security</h4>
-        <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
-        
-        <h4>Your Rights</h4>
-        <p>You have the right to access, update, or delete your personal information at any time.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-modal btn-primary" id="acceptPrivacy">I Accept</button>
-      </div>
-    </div>
-  </div>
-  
   <footer>
     &copy; 2025 MitheralFX. All rights reserved. Built for traders, by traders.
   </footer>
@@ -1759,7 +1302,7 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   
   <script>
-    
+    // Theme Toggle
     document.getElementById('themeToggle').addEventListener('click', function() {
       document.body.classList.toggle('light-mode');
       const icon = this.querySelector('i');
@@ -1767,121 +1310,196 @@
       icon.classList.toggle('fa-sun');
     });
     
+    // Account Type Selection
+    document.querySelectorAll('.account-type').forEach(type => {
+      type.addEventListener('click', function() {
+        document.querySelectorAll('.account-type').forEach(t => t.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
     
-    let currentStep = 1;
-    const totalSteps = 4;
+    // Experience Level Selection
+    document.querySelectorAll('.experience-level').forEach(level => {
+      level.addEventListener('click', function() {
+        document.querySelectorAll('.experience-level').forEach(l => l.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
     
-    function nextStep() {
-      if (validateStep(currentStep)) {
-        if (currentStep < totalSteps) {
-          document.getElementById(`step${currentStep}`).classList.remove('active');
-          currentStep++;
-          document.getElementById(`step${currentStep}`).classList.add('active');
-          updateProgress();
-          
-         
-          if (currentStep === 4) {
-            populateReviewInfo();
-          }
-        }
-      }
-    }
+    // Password Strength Checker
+    const passwordInput = document.getElementById('password');
+    const strengthMeter = document.getElementById('strengthMeter');
     
-    function prevStep() {
-      if (currentStep > 1) {
-        document.getElementById(`step${currentStep}`).classList.remove('active');
-        currentStep--;
-        document.getElementById(`step${currentStep}`).classList.add('active');
-        updateProgress();
-      }
-    }
-    
-    function updateProgress() {
-      document.querySelectorAll('.progress-step').forEach((step, index) => {
-        if (index < currentStep) {
-          step.classList.add('completed');
-          step.classList.remove('active');
-        } else if (index === currentStep - 1) {
-          step.classList.add('active');
-          step.classList.remove('completed');
+    passwordInput.addEventListener('input', function() {
+      const password = this.value;
+      let strength = 0;
+      
+      // Check password requirements
+      const requirements = {
+        length: password.length >= 8,
+        uppercase: /[A-Z]/.test(password),
+        lowercase: /[a-z]/.test(password),
+        number: /[0-9]/.test(password),
+        special: /[$@#&!]/.test(password)
+      };
+      
+      // Update requirement indicators
+      Object.keys(requirements).forEach(req => {
+        const element = document.getElementById(`req-${req}`);
+        if (requirements[req]) {
+          element.classList.add('met');
+          element.querySelector('i').className = 'fas fa-check-circle';
+          strength++;
         } else {
-          step.classList.remove('active', 'completed');
+          element.classList.remove('met');
+          element.querySelector('i').className = 'fas fa-circle';
         }
       });
-    }
+      
+      // Update strength meter
+      strengthMeter.className = 'password-strength-meter';
+      if (strength <= 2) {
+        strengthMeter.classList.add('strength-weak');
+      } else if (strength <= 4) {
+        strengthMeter.classList.add('strength-medium');
+      } else {
+        strengthMeter.classList.add('strength-strong');
+      }
+    });
     
-    function validateStep(step) {
+    // Password Visibility Toggle
+    document.getElementById('togglePassword').addEventListener('click', function() {
+      const passwordField = document.getElementById('password');
+      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordField.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+    
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+      const confirmPasswordField = document.getElementById('confirmPassword');
+      const type = confirmPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
+      confirmPasswordField.setAttribute('type', type);
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+    
+    // Profile Picture Upload
+    document.getElementById('profilePicture').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const preview = document.getElementById('profilePreview');
+          preview.innerHTML = `<img src="${e.target.result}" alt="Profile">`;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    
+    // Newsletter Categories
+    document.querySelectorAll('.newsletter-category').forEach(category => {
+      category.addEventListener('click', function() {
+        this.classList.toggle('selected');
+      });
+    });
+    
+    // Phone Number Formatting
+    document.getElementById('phone').addEventListener('input', function() {
+      let value = this.value.replace(/\D/g, '');
+      if (value.length > 0) {
+        if (value.length <= 3) {
+          value = value;
+        } else if (value.length <= 6) {
+          value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+        } else if (value.length <= 10) {
+          value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6)}`;
+        } else {
+          value = `+${value.slice(0, 1)} (${value.slice(1, 4)}) ${value.slice(4, 7)}-${value.slice(7, 11)}`;
+        }
+      }
+      this.value = value;
+    });
+    
+    // Form Submission
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate form
+      if (!validateForm()) {
+        return;
+      }
+      
+      // Show loading state
+      const submitButton = document.getElementById('submitButton');
+      submitButton.classList.add('loading');
+      submitButton.disabled = true;
+      
+      // Simulate form submission
+      setTimeout(() => {
+        // Redirect to login page
+        window.location.href = 'login.html';
+      }, 2000);
+    });
+    
+    // Form Validation
+    function validateForm() {
       let isValid = true;
       const errorMessage = document.getElementById('errorMessage');
       const errorText = document.getElementById('errorText');
       
-      switch(step) {
-        case 1:
-          
-          const firstName = document.getElementById('firstName').value;
-          const lastName = document.getElementById('lastName').value;
-          const email = document.getElementById('email').value;
-          const phone = document.getElementById('phone').value;
-          const country = document.getElementById('country').value;
-          
-          if (!firstName || !lastName || !email || !phone || !country) {
-            showError('Please fill in all required fields');
-            isValid = false;
-          } else if (!isValidEmail(email)) {
-            showError('Please enter a valid email address');
-            isValid = false;
-          } else if (!isValidPhone(phone)) {
-            showError('Please enter a valid phone number');
-            isValid = false;
-          }
-          break;
-          
-        case 2:
-          
-          const accountType = document.querySelector('.account-type.selected');
-          const username = document.getElementById('username').value;
-          const password = document.getElementById('password').value;
-          const confirmPassword = document.getElementById('confirmPassword').value;
-          const experience = document.querySelector('.experience-level.selected');
-          
-          if (!accountType) {
-            showError('Please select an account type');
-            isValid = false;
-          } else if (!username) {
-            showError('Please enter a username');
-            isValid = false;
-          } else if (username.length < 3) {
-            showError('Username must be at least 3 characters');
-            isValid = false;
-          } else if (!password) {
-            showError('Please enter a password');
-            isValid = false;
-          } else if (!isPasswordStrong(password)) {
-            showError('Please create a stronger password');
-            isValid = false;
-          } else if (password !== confirmPassword) {
-            showError('Passwords do not match');
-            isValid = false;
-          } else if (!experience) {
-            showError('Please select your trading experience level');
-            isValid = false;
-          }
-          break;
-          
-        case 3:
-          
-          const timezone = document.getElementById('timezone').value;
-          
-          if (!timezone) {
-            showError('Please select your timezone');
-            isValid = false;
-          }
-          break;
+      // Personal Information
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const country = document.getElementById('country').value;
+      
+      if (!firstName || !lastName || !email || !phone || !country) {
+        showError('Please fill in all required personal information fields');
+        isValid = false;
+      } else if (!isValidEmail(email)) {
+        showError('Please enter a valid email address');
+        isValid = false;
+      } else if (!isValidPhone(phone)) {
+        showError('Please enter a valid phone number');
+        isValid = false;
+      }
+      
+      // Account Details
+      const accountType = document.querySelector('.account-type.selected');
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const experience = document.querySelector('.experience-level.selected');
+      
+      if (!accountType) {
+        showError('Please select an account type');
+        isValid = false;
+      } else if (!username) {
+        showError('Please enter a username');
+        isValid = false;
+      } else if (username.length < 3) {
+        showError('Username must be at least 3 characters');
+        isValid = false;
+      } else if (!password) {
+        showError('Please enter a password');
+        isValid = false;
+      } else if (!isPasswordStrong(password)) {
+        showError('Please create a stronger password');
+        isValid = false;
+      } else if (password !== confirmPassword) {
+        showError('Passwords do not match');
+        isValid = false;
+      } else if (!experience) {
+        showError('Please select your trading experience level');
+        isValid = false;
       }
       
       return isValid;
     }
     
+    // Validation Helper Functions
     function isValidEmail(email) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
@@ -1916,260 +1534,28 @@
       }, 5000);
     }
     
-    
-    document.querySelectorAll('.account-type').forEach(type => {
-      type.addEventListener('click', function() {
-        document.querySelectorAll('.account-type').forEach(t => t.classList.remove('selected'));
-        this.classList.add('selected');
-      });
-    });
-    
-    
-    document.querySelectorAll('.experience-level').forEach(level => {
-      level.addEventListener('click', function() {
-        document.querySelectorAll('.experience-level').forEach(l => l.classList.remove('selected'));
-        this.classList.add('selected');
-      });
-    });
-    
-   
-    const passwordInput = document.getElementById('password');
-    const strengthMeter = document.getElementById('strengthMeter');
-    
-    passwordInput.addEventListener('input', function() {
-      const password = this.value;
-      let strength = 0;
-      
-      
-      const requirements = {
-        length: password.length >= 8,
-        uppercase: /[A-Z]/.test(password),
-        lowercase: /[a-z]/.test(password),
-        number: /[0-9]/.test(password),
-        special: /[$@#&!]/.test(password)
-      };
-      
-     
-      Object.keys(requirements).forEach(req => {
-        const element = document.getElementById(`req-${req}`);
-        if (requirements[req]) {
-          element.classList.add('met');
-          element.querySelector('i').className = 'fas fa-check-circle';
-          strength++;
-        } else {
-          element.classList.remove('met');
-          element.querySelector('i').className = 'fas fa-circle';
-        }
-      });
-      
-      
-      strengthMeter.className = 'password-strength-meter';
-      if (strength <= 2) {
-        strengthMeter.classList.add('strength-weak');
-      } else if (strength <= 4) {
-        strengthMeter.classList.add('strength-medium');
-      } else {
-        strengthMeter.classList.add('strength-strong');
-      }
-    });
-    
-   
-    document.getElementById('togglePassword').addEventListener('click', function() {
-      const passwordField = document.getElementById('password');
-      const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordField.setAttribute('type', type);
-      this.classList.toggle('fa-eye');
-      this.classList.toggle('fa-eye-slash');
-    });
-    
-    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
-      const confirmPasswordField = document.getElementById('confirmPassword');
-      const type = confirmPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
-      confirmPasswordField.setAttribute('type', type);
-      this.classList.toggle('fa-eye');
-      this.classList.toggle('fa-eye-slash');
-    });
-    
-    
-    document.getElementById('profilePicture').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const preview = document.getElementById('profilePreview');
-          preview.innerHTML = `<img src="${e.target.result}" alt="Profile">`;
-        };
-        reader.readAsDataURL(file);
-      }
-    });
-    
-    
-    document.querySelectorAll('.newsletter-category').forEach(category => {
-      category.addEventListener('click', function() {
-        this.classList.toggle('selected');
-      });
-    });
-    
-   
-    document.getElementById('phone').addEventListener('input', function() {
-      let value = this.value.replace(/\D/g, '');
-      if (value.length > 0) {
-        if (value.length <= 3) {
-          value = value;
-        } else if (value.length <= 6) {
-          value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
-        } else if (value.length <= 10) {
-          value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6)}`;
-        } else {
-          value = `+${value.slice(0, 1)} (${value.slice(1, 4)}) ${value.slice(4, 7)}-${value.slice(7, 11)}`;
-        }
-      }
-      this.value = value;
-    });
-    
-    
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      
-      const terms = document.getElementById('terms').checked;
-      const age = document.getElementById('age').checked;
-      const risk = document.getElementById('risk').checked;
-      
-      if (!terms || !age || !risk) {
-        showError('Please accept all required terms and confirmations');
-        return;
-      }
-      
-      
-      const submitButton = document.getElementById('submitButton');
-      submitButton.classList.add('loading');
-      submitButton.disabled = true;
-      
-      
-      setTimeout(() => {
-        
-        document.querySelector('.signup-container > form').style.display = 'none';
-        document.querySelector('.progress-steps').style.display = 'none';
-        document.querySelector('.divider').style.display = 'none';
-        document.querySelector('.social-signup').style.display = 'none';
-        document.querySelector('.login-link').style.display = 'none';
-        document.getElementById('successAnimation').classList.add('show');
-        
-        
-        const userData = {
-          firstName: document.getElementById('firstName').value,
-          lastName: document.getElementById('lastName').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          country: document.getElementById('country').value,
-          accountType: document.querySelector('.account-type.selected').dataset.type,
-          username: document.getElementById('username').value,
-          experience: document.querySelector('.experience-level.selected').dataset.level,
-          timezone: document.getElementById('timezone').value,
-          preferences: {
-            emailNotif: document.getElementById('emailNotif').checked,
-            smsNotif: document.getElementById('smsNotif').checked,
-            pushNotif: document.getElementById('pushNotif').checked,
-            newsletters: Array.from(document.querySelectorAll('.newsletter-category.selected')).map(el => el.dataset.category)
-          }
-        };
-        
-        localStorage.setItem('mitheralfx_user', JSON.stringify(userData));
-      }, 2000);
-    });
-    
-    
-    function populateReviewInfo() {
-      const reviewInfo = document.getElementById('reviewInfo');
-      const accountType = document.querySelector('.account-type.selected');
-      const experience = document.querySelector('.experience-level.selected');
-      
-      reviewInfo.innerHTML = `
-        <div style="margin-bottom: 1rem;">
-          <strong>Name:</strong> ${document.getElementById('firstName').value} ${document.getElementById('lastName').value}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Email:</strong> ${document.getElementById('email').value}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Phone:</strong> ${document.getElementById('phone').value}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Country:</strong> ${document.getElementById('country').value}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Account Type:</strong> ${accountType ? accountType.querySelector('h4').textContent : 'Not selected'}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Username:</strong> ${document.getElementById('username').value}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Experience:</strong> ${experience ? experience.querySelector('h5').textContent : 'Not selected'}
-        </div>
-        <div style="margin-bottom: 1rem;">
-          <strong>Timezone:</strong> ${document.getElementById('timezone').value}
-        </div>
-      `;
-    }
-    
-   
-    document.getElementById('termsLink').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('termsModal').classList.add('show');
-    });
-    
-    document.getElementById('privacyLink').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.getElementById('privacyModal').classList.add('show');
-    });
-    
-    document.getElementById('closeTerms').addEventListener('click', function() {
-      document.getElementById('termsModal').classList.remove('show');
-    });
-    
-    document.getElementById('closePrivacy').addEventListener('click', function() {
-      document.getElementById('privacyModal').classList.remove('show');
-    });
-    
-    document.getElementById('acceptTerms').addEventListener('click', function() {
-      document.getElementById('termsModal').classList.remove('show');
-      document.getElementById('terms').checked = true;
-    });
-    
-    document.getElementById('acceptPrivacy').addEventListener('click', function() {
-      document.getElementById('privacyModal').classList.remove('show');
-    });
-    
-   
-    window.addEventListener('click', function(e) {
-      if (e.target.classList.contains('modal')) {
-        e.target.classList.remove('show');
-      }
-    });
-    
-   
+    // Social Signup
     document.querySelectorAll('.social-signup a').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
         const platform = this.getAttribute('title').split(' ')[3];
         
-        
+        // Show loading state
         this.style.opacity = '0.5';
         this.style.pointerEvents = 'none';
         
-       
+        // Simulate social signup
         setTimeout(() => {
           alert(`Sign up with ${platform} would be implemented here`);
           
-        
+          // Reset button state
           this.style.opacity = '1';
           this.style.pointerEvents = 'auto';
         }, 1000);
       });
     });
     
-    
+    // Initialize Select2
     $(document).ready(function() {
       $('#country, #timezone').select2({
         theme: 'default',
