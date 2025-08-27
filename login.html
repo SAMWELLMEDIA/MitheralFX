@@ -27,7 +27,6 @@
       --accent: #6a5acd;
       --accent-light: #8a7bd8;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -708,7 +707,7 @@
       to { opacity: 1; }
     }
     
-    /* Two Factor Authentication Modal */
+    /* Forgot Password Modal */
     .modal {
       display: none;
       position: fixed;
@@ -732,7 +731,7 @@
       background: var(--card-bg);
       border-radius: 16px;
       width: 90%;
-      max-width: 450px;
+      max-width: 400px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
       animation: slideUp 0.3s;
     }
@@ -783,48 +782,6 @@
       margin-bottom: 1.5rem;
     }
     
-    .code-inputs {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    
-    .code-input {
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      color: #fff;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      transition: all 0.3s;
-    }
-    
-    .code-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.2);
-    }
-    
-    .resend-code {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-    
-    .resend-code a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    
-    .resend-code a:hover {
-      text-decoration: underline;
-    }
-    
     .modal-footer {
       padding: 1.5rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -860,11 +817,6 @@
       background: var(--primary-dark);
     }
     
-    /* Forgot Password Modal */
-    .forgot-password-modal .modal-content {
-      max-width: 400px;
-    }
-    
     /* Footer */
     footer {
       background-color: #2b2b50;
@@ -898,12 +850,6 @@
       
       nav {
         display: none;
-      }
-      
-      .code-input {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
       }
     }
   </style>
@@ -1061,35 +1007,6 @@
     </div>
   </main>
   
-  <div class="modal" id="twoFactorModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Two-Factor Authentication</h3>
-        <button class="close" id="closeTwoFactorModal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p>Enter the 6-digit code sent to your email or authenticator app</p>
-        
-        <div class="code-inputs">
-          <input type="text" class="code-input" maxlength="1" data-index="0">
-          <input type="text" class="code-input" maxlength="1" data-index="1">
-          <input type="text" class="code-input" maxlength="1" data-index="2">
-          <input type="text" class="code-input" maxlength="1" data-index="3">
-          <input type="text" class="code-input" maxlength="1" data-index="4">
-          <input type="text" class="code-input" maxlength="1" data-index="5">
-        </div>
-        
-        <div class="resend-code">
-          Didn't receive the code? <a href="#" id="resendCode">Resend</a>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-modal btn-secondary" id="cancelTwoFactor">Cancel</button>
-        <button class="btn-modal btn-primary" id="verifyCode">Verify</button>
-      </div>
-    </div>
-  </div>
-  
   <div class="modal forgot-password-modal" id="forgotPasswordModal">
     <div class="modal-content">
       <div class="modal-header">
@@ -1145,7 +1062,6 @@
     const errorText = document.getElementById('errorText');
     const successMessage = document.getElementById('successMessage');
     const loginButton = document.getElementById('loginButton');
-    const twoFactorModal = document.getElementById('twoFactorModal');
     
     loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -1176,21 +1092,7 @@
       loginButton.disabled = true;
       
       setTimeout(() => {
-        
-        const has2FA = Math.random() > 0.5; 
-        
-        if (has2FA) {
-          
-          loginButton.classList.remove('loading');
-          loginButton.disabled = false;
-          twoFactorModal.classList.add('show');
-          
-          setTimeout(() => {
-            document.querySelector('.code-input').focus();
-          }, 300);
-        } else {
-          handleLoginSuccess();
-        }
+        handleLoginSuccess();
       }, 1500);
     });
     
@@ -1224,79 +1126,6 @@
         errorMessage.classList.remove('show');
       }, 5000);
     }
-    
-    const codeInputs = document.querySelectorAll('.code-input');
-    
-    codeInputs.forEach((input, index) => {
-      input.addEventListener('input', function() {
-        if (this.value.length === 1) {
-          if (index < codeInputs.length - 1) {
-            codeInputs[index + 1].focus();
-          }
-        }
-      });
-      
-      input.addEventListener('keydown', function(e) {
-        if (e.key === 'Backspace' && this.value === '' && index > 0) {
-          codeInputs[index - 1].focus();
-        }
-      });
-      
-      input.addEventListener('input', function() {
-        this.value = this.value.replace(/[^0-9]/g, '');
-      });
-    });
-    
-    document.getElementById('verifyCode').addEventListener('click', function() {
-      const code = Array.from(codeInputs).map(input => input.value).join('');
-      
-      if (code.length !== 6) {
-        alert('Please enter all 6 digits');
-        return;
-      }
-      
-      this.textContent = 'Verifying...';
-      this.disabled = true;
-      
-      setTimeout(() => {
-        // For demo, accept any 6-digit code
-        twoFactorModal.classList.remove('show');
-        handleLoginSuccess();
-        
-        // Reset modal
-        this.textContent = 'Verify';
-        this.disabled = false;
-        codeInputs.forEach(input => input.value = '');
-      }, 1500);
-    });
-    
-    document.getElementById('cancelTwoFactor').addEventListener('click', function() {
-      twoFactorModal.classList.remove('show');
-      loginButton.classList.remove('loading');
-      loginButton.disabled = false;
-      codeInputs.forEach(input => input.value = '');
-    });
-    
-    document.getElementById('closeTwoFactorModal').addEventListener('click', function() {
-      twoFactorModal.classList.remove('show');
-      loginButton.classList.remove('loading');
-      loginButton.disabled = false;
-      codeInputs.forEach(input => input.value = '');
-    });
-    
-    document.getElementById('resendCode').addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Simulate resending code
-      this.textContent = 'Sending...';
-      this.disabled = true;
-      
-      setTimeout(() => {
-        this.textContent = 'Resend';
-        this.disabled = false;
-        alert('Code resent successfully!');
-      }, 1500);
-    });
     
     // Forgot Password Modal
     const forgotPasswordModal = document.getElementById('forgotPasswordModal');
@@ -1497,13 +1326,6 @@
       if (e.target.classList.contains('modal')) {
         e.target.classList.remove('show');
         
-        // Reset 2FA modal
-        if (e.target.id === 'twoFactorModal') {
-          loginButton.classList.remove('loading');
-          loginButton.disabled = false;
-          codeInputs.forEach(input => input.value = '');
-        }
-        
         // Reset forgot password modal
         if (e.target.id === 'forgotPasswordModal') {
           document.getElementById('resetEmail').value = '';
@@ -1526,3 +1348,4 @@
   </script>
 </body>
 </html>
+   
